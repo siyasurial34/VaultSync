@@ -1,5 +1,5 @@
-import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { ToastProvider } from './components/Toast.jsx';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'; //library
+import { ToastProvider } from './components/Toast.jsx';// imports from particular jsx file
 import Protected from './components/Protected.jsx';
 import Login from './pages/Login.jsx';
 import Dashboard from './pages/Dashboard.jsx';
@@ -25,8 +25,9 @@ export default function App() {
           <Route path="/announcements" element={<Protected><Announcements /></Protected>} />
           <Route path="/shared" element={<Protected><Shared /></Protected>} />
           <Route path="/activity" element={<Protected><Activity /></Protected>} />
+          //admin prop passed to protected comp
           <Route path="/users" element={<Protected roles={['Admin']}><Users /></Protected>} />
-          <Route path="*" element={<Navigate to="/dashboard" replace />} />
+          <Route path="*" element={<Navigate to="/dashboard" replace />} /> //replace browser history
         </Routes>
       </ToastProvider>
     </HashRouter>
